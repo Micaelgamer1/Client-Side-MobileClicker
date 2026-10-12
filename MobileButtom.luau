@@ -45,20 +45,21 @@ screenGui.Parent = playerGui
 
 -- Botão de interação
 local interactButton = Instance.new("TextButton")
-interactButton.Size = UDim2.new(0, 150, 0, 50)
+interactButton.Size = UDim2.new(0, 80, 0, 80)
 interactButton.Position = loadSavedPosition()
 interactButton.AnchorPoint = Vector2.new(1, 1)
 interactButton.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 interactButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 interactButton.Font = Enum.Font.GothamBold
-interactButton.TextSize = 18
 interactButton.Text = "Interagir"
 interactButton.Visible = false
 interactButton.Active = true
+interactButton.TextScaled = true
+interactButton.TextWrapped = true
 interactButton.Parent = screenGui
 
 local corner = Instance.new("UICorner")
-corner.CornerRadius = UDim.new(0, 8)
+corner.CornerRadius = UDim.new(1, 0)
 corner.Parent = interactButton
 
 local stroke = Instance.new("UIStroke")
