@@ -172,9 +172,10 @@ interactButton.InputBegan:Connect(function(input)
 	if isEditing then return end
 	if input.UserInputType == Enum.UserInputType.Touch
 		or input.UserInputType == Enum.UserInputType.MouseButton1 then
-		if currentPrompt and not holdActive then
+		-- Verifica se o prompt ainda existe e está ativo antes de disparar
+		if currentPrompt and currentPrompt.Parent and not holdActive then
 			holdActive = true
-			ProximityPromptService:InputHoldBegin(currentPrompt)
+			currentPrompt:InputHoldBegin()
 		end
 	end
 end)
@@ -184,8 +185,8 @@ interactButton.InputEnded:Connect(function(input)
 		or input.UserInputType == Enum.UserInputType.MouseButton1 then
 		if holdActive then
 			holdActive = false
-			if currentPrompt then
-				ProximityPromptService:InputHoldEnd(currentPrompt)
+			if currentPrompt and currentPrompt.Parent then
+				currentPrompt:InputHoldEnd()
 			end
 		end
 	end
